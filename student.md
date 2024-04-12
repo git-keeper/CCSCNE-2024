@@ -9,149 +9,118 @@ The workflow for most git-keeper assignments is:
 5. Push your changes back to the server
 6. Check your email to make sure the submission was received and see the results of any tests that were run. If the tests did not pass, you can go back to step 3 and submit again.
 
+## Example: Simple BlueJ Assignment
 
-## Example: Homework Average
+BlueJ is a Java IDE aimed at introductory programming. We chose BlueJ as the platform for this tutorial because it has Git support built in, and illustrates how git-keeper can be used even at the introductory course level. To try this example assignment, download BlueJ from [here](https://www.bluej.org/) if you do not already have it installed.
 
-* If you have not done so already, fill out the form at [www.yellkey.com/pattern](http://www.yellkey.com/pattern) to get added to the sample course.
-* You will receive two emails from `gitkeeper@moravian.edu`: one containing account information and another containing a clone URL and directions for your first assignment. Check your spam folder if you do not see these in your inbox. The second email should look like this:
+If you have not done so already, fill out the form at [https://ccscne.git-keeper.education/](https://ccscne.git-keeper.education/) to be added to the sample course.
 
-  ```
-  Clone URL: <username>@ec2-18-205-161-251.compute-1.amazonaws.com:/home/<username>/colemanb/ccsce2022/hw_average.git
+### Git-keeper Emails
 
+You will receive three emails from `gitkeeper@moravian.edu`: one containing account information and two others containing information about sample assignments. Check your spam folder if you do not see these in your inbox. The assignment emails should contain a link to these instructions. You will start with the `bluej1-rectangle` assignment.
 
-  This is the first programming problem for CCSC-E 2022.  
-  Your task is to implement the function compute_hw_average 
-  that takes a list of homework scores as its parameter.
+### Cloning 
 
-  The following built-in Python functions will help:
+BlueJ has built-in support for cloning Git repositories. Open BlueJ and click Tools -> Team -> Checkout Project, like so:
 
-    * len(lst) - returns the length of a list
-    * min(lst) - returns the minimum value in a list
-    * sum(lst) - returns the sum of the elements in a list
-  ```
+![](images/bluej_checkout.png)
 
-* You should clone the repo onto your laptop (using the username and password sent to you in an email from `gitkeeper@moravian.edu`).  You can use the command line or the git features of an IDE.
+Copy the clone URL from the `bluej1-rectangle` assignment email and paste it in the Team Settings window that appears. Leave the branch field as it is. Fill in the rest of your information, using the password from the account email you received from git-keeper:
 
-  ```
-  git clone <username>@ec2-18-205-161-251.compute-1.amazonaws.com:/home/<username>/colemanb/ccsce2022/hw_average.git
-  ```
-  
-* The repository contains a file named `hw_average.py`. Edit this file with an **incorrect** solution
+![](images/bluej_team_settings.png)
 
-  ```
-  def compute_hw_average(grades):
-      """
-      This function computes the average homework grade for a student.
-      grades is a list of integer homework scores, and the average is
-      computed by dropping the lowest grade.  If the list only contains
-      a single value, no grades are dropped.
-      """
-      return sum(grades) / len(grades)
-  ```
-      
-* Commit the changes and push them back to the server
+Press the "Check connection..." button. If you see an error about an unknown protocol, check to see if there are extra spaces at the beginning of the "Repository URI" field.
 
-  ```
-  git add hw_average.py
-  git commit -m "my first attempt"
-  git push origin master
-  ```
-  
-* Check for email from `gitkeeper@moravian.edu` that contains feedback about your solution
+Click OK. You will the be prompted to choose a name and location for the repository on your machine. Use "bluej1-rectangle" as the name, and choose a suitable location:
 
-	```
-	Below is the output from running my tests against your code.
-	============================= test session starts ==============================
-	platform linux -- Python 3.10.4, pytest-7.1.3, pluggy-1.0.0
-	rootdir: /home/tester/tests
-	collected 5 items
-	
-	test_compute_hw_average.py F..FF                                         [100%]
-	
-	=================================== FAILURES ===================================
-	_____________________ test_no_submissions_is_zero_average ______________________
-	
-	    def test_no_submissions_is_zero_average():
-	>       assert compute_hw_average([]) == approx(0)
-	
-	test_compute_hw_average.py:6:
-	_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
-	grades = []
-	
-	    def compute_hw_average(grades):
-	        """
-	        This function computes the average homework grade for a student.
-	        grades is a list of integer homework scores, and the average is
-	        computed by dropping the lowest grade.  If the list only contains
-	        a single value, no grades are dropped.
-	        """
-	>       return sum(grades) / len(grades)
-	E       ZeroDivisionError: division by zero
-	
-	hw_average.py:10: ZeroDivisionError
-	__________________________ test_lowest_grade_dropped ___________________________
-	
-	    def test_lowest_grade_dropped():
-	>       assert compute_hw_average([0, 5, 7]) == approx(6)
-	E       assert 4.0 == 6 ± 6.0e-06
-	E         comparison failed
-	E         Obtained: 4.0
-	E         Expected: 6 ± 6.0e-06
-	
-	test_compute_hw_average.py:18: AssertionError
-	____________________________ test_average_is_float _____________________________
-	
-	    def test_average_is_float():
-	>       assert compute_hw_average([0, 1, 2, 3, 4]) == approx(10/4)
-	E       assert 2.0 == 2.5 ± 2.5e-06
-	E         comparison failed
-	E         Obtained: 2.0
-	E         Expected: 2.5 ± 2.5e-06
-	
-	test_compute_hw_average.py:22: AssertionError
-	=========================== short test summary info ============================
-	FAILED test_compute_hw_average.py::test_no_submissions_is_zero_average - Zero...
-	FAILED test_compute_hw_average.py::test_lowest_grade_dropped - assert 4.0 == ...
-	FAILED test_compute_hw_average.py::test_average_is_float - assert 2.0 == 2.5 ...
-	========================= 3 failed, 2 passed in 0.03s ========================== 
-	```
-	
-* Edit your code to have the **correct** solution
+![](images/bluej_project_location.png)
 
-	```
-	def compute_hw_average(grades):
-	    """
-	    This function computes the average homework grade for a student.
-	    grades is a list of integer homework scores, and the average is
-	    computed by dropping the lowest grade.  If the list only contains
-	    a single value, no grades are dropped.
-	    """
-	    if len(grades) == 0:
-	        return 0
-	    if len(grades) == 1:
-	        return grades[0]
-	    return (sum(grades) - min(grades)) / (len(grades) - 1)
-	```
-	
-* Commit the changes and push them back to the server
+If the project repository is cloned successfully, you should see this:
 
-  ```
-  git add hw_average.py
-  git commit -m "got it this time"
-  git push origin master
-  ```
-  
-* Check for email from `gitkeeper@moravian.edu` that contains feedback about your solution
+![](images/bluej_project.png)
 
-	```
-	Below is the output from running my tests against your code.
-	============================= test session starts ==============================
-	platform linux -- Python 3.10.4, pytest-7.1.3, pluggy-1.0.0
-	rootdir: /home/tester/tests
-	collected 5 items
-	
-	test_compute_hw_average.py .....                                         [100%]
-	
-	============================== 5 passed in 0.01s ===============================
-	```
+### Editing a Solution
+
+Double click on the striped orange box labeled "Rectangle", which will open up an editor for the `Rectangle` class. The class has `height` and `width` fields with getters, and a `getArea()` method that is currently a stub that returns 0.
+
+Go to the `getArea()` method at the bottom of the class, and edit it to  have a *partially correct* solution:
+
+![](images/bluej_partially_correct.png)
+
+You can close the class and click the "Compile" button to ensure your code compiles, which should remove the stripes on the rectangle. To test the class, create an object using the class's context menu:
+
+![](images/bluej_new_rectangle.png)
+
+Enter positive values for width and height:
+
+![](images/bluej_construct_rectangle.png)
+
+When you click OK, there should now be a red box in the bottom pane for your object. Run the `getArea()` method using this box's context menu:
+
+![](images/bluej_call_getarea.png)
+
+Confirm that the return value is as expected.
+
+### Submitting a Solution
+
+To submit this solution, first expand the Teamwork pane using the triangle icon above the object box (highlighted in green below):
+
+![](images/bluej_expand_teamwork.png)
+
+Click the "Commit/Push" button:
+
+![](images/bluej_commit_push.png)
+
+Enter a commit message and click "Commit":
+
+![](images/bluej_commit.png)
+
+Click the "Push" button to submit:
+
+![](images/bluej_push.png)
+
+That's it! You should now receive an email from git-keeper with your test results. Since this solution did not take into account the desired behavior with negativie width/height, one test fails. You should see the following:
+
+```
+Compiling your code...
+Success!
+
+Compiling your code with my tests...
+Success!
+
+Below is the output from testing your code.
+╷
+├─ JUnit Jupiter ✔
+│  └─ RectangleTest ✔
+│     ├─ testGetWidth() ✔
+│     ├─ testGetArea() ✔
+│     ├─ testGetHeight() ✔
+│     └─ testGetAreaNegative() ✘ Expected getArea() to return 0 when width is 1 and height is -2. Instead getArea() returned -2
+└─ JUnit Vintage ✔
+
+...
+```
+
+Fix the method with a proper solution:
+
+![](images/bluej_correct_solution.png)
+
+You can now repeat the steps to compile, create an object and run `getArea()`, commit, and push. After another push you should see an email that all the tests have passed:
+
+```
+Compiling your code...
+Success!
+
+Compiling your code with my tests...
+Success!
+
+Below is the output from testing your code.
+╷
+├─ JUnit Jupiter ✔
+│  └─ RectangleTest ✔
+│     ├─ testGetWidth() ✔
+│     ├─ testGetArea() ✔
+│     ├─ testGetHeight() ✔
+│     └─ testGetAreaNegative() ✔
+└─ JUnit Vintage ✔
+```
