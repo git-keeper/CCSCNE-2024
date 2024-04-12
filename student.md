@@ -11,13 +11,13 @@ The workflow for most git-keeper assignments is:
 
 ## Example: Simple BlueJ Assignment
 
-BlueJ is a Java IDE aimed at introductory programming. We chose BlueJ as the platform for this tutorial because it has Git support built in, and illustrates how git-keeper can be used even at the introductory course level. To try this example assignment, download BlueJ from [here](https://www.bluej.org/) if you do not already have it installed.
+BlueJ is a Java IDE aimed at introductory programming. We chose BlueJ as the platform for this tutorial because it has Git support built in, and illustrates how git-keeper can be used even at the introductory course level. If you wish to try out the sample assignments but do not have BlueJ installed, download version 5.2.1 since the latest version seems to have broken Git support: [https://www.bluej.org/versions.html](https://www.bluej.org/versions.html)
 
 If you have not done so already, fill out the form at [https://ccscne.git-keeper.education/](https://ccscne.git-keeper.education/) to be added to the sample course.
 
 ### Git-keeper Emails
 
-You will receive three emails from `gitkeeper@moravian.edu`: one containing account information and two others containing information about sample assignments. Check your spam folder if you do not see these in your inbox. The assignment emails should contain a link to these instructions. You will start with the `bluej1-rectangle` assignment.
+You will receive two emails from `gitkeeper@moravian.edu`: one containing account information and another containing information about a sample assignment. Check your spam folder if you do not see these in your inbox. The assignment emails should contain a link to these instructions.
 
 ### Cloning 
 
@@ -25,7 +25,7 @@ BlueJ has built-in support for cloning Git repositories. Open BlueJ and click To
 
 ![](images/bluej_checkout.png)
 
-Copy the clone URL from the `bluej1-rectangle` assignment email and paste it in the Team Settings window that appears. Leave the branch field as it is. Fill in the rest of your information, using the password from the account email you received from git-keeper:
+Copy the clone URL from the `bluej1-rectangle` assignment email and paste it in the Team Settings window that appears. Leave the branch field as it is. Fill in the rest of your information, using the password from the account email you received from git-keeper. Saving your password should be okay since it is randomly generated:
 
 ![](images/bluej_team_settings.png)
 
@@ -123,4 +123,6 @@ Below is the output from testing your code.
 │     ├─ testGetHeight() ✔
 │     └─ testGetAreaNegative() ✔
 └─ JUnit Vintage ✔
+
+...
 ```
