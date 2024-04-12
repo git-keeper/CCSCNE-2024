@@ -1,0 +1,4 @@
+This is the first example assignment for the CCSCNE git-keeper tutorial. This is a simple BlueJ assignment in which you will modify a stub Java method so that it properly returns the area of a rectangle.
+
+See here for more detailed instructions:
+https://github.com/git-keeper/CCSCNE-2024/blob/main/student.md

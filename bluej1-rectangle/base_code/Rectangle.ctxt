@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Rectangle
+comment0.text=\n\ Represents\ a\ rectangle\ by\ width\ and\ height.\n
+comment1.params=width\ height
+comment1.target=Rectangle(int,\ int)
+comment2.params=
+comment2.target=int\ getWidth()
+comment3.params=
+comment3.target=int\ getHeight()
+numComments=4
